@@ -1,4 +1,4 @@
-import  {BrowserRouter as Router, Route, Switch}from 'react-router-dom'
+import  {BrowserRouter, Route, Switch}from 'react-router-dom'
 import './App.css';
 import Navbar from './components/layout/Navbar'
 import Index from './components/layout/Index'
@@ -9,7 +9,7 @@ import Provider from './context'
 function App() {
   return (
     <Provider>
-      <Router>
+      <BrowserRouter>
         <React.Fragment>
           <Navbar />
           <div className="container">
@@ -19,7 +19,7 @@ function App() {
             </Switch>
           </div>
         </React.Fragment>
-      </Router>
+      </BrowserRouter>
     </Provider>
   );
 }

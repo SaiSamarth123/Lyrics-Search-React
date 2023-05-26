@@ -10,23 +10,33 @@ class Lyrics extends Component {
     lyrics: {}
   }
 
-  componentDidMount() {
-        axios
-          .get(
-            `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${this.props.match.params.id}&apikey=1ad76a081bad2f54a5d5835930864314`
-          )
-          .then((res) => {
-            // console.log(res.data)
-            this.setState({ lyrics: res.data.message.body.lyrics });
-            return axios.get(
-              `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.get?track_id=${this.props.match.params.id}&apikey=1ad76a081bad2f54a5d5835930864314`
-            ); 
-          })
-          .then(res => {
-             this.setState({ track: res.data.message.body.track });
-          })
+  fetchData = () => {
+    axios
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${this.props.match.params.id}&apikey=1ad76a081bad2f54a5d5835930864314`
+      )
+      .then((res) => {
+        // console.log(res.data)
+        this.setState({ lyrics: res.data.message.body.lyrics });
+        return axios.get(
+          `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.get?track_id=${this.props.match.params.id}&apikey=1ad76a081bad2f54a5d5835930864314`
+        );
+      })
+      .then((res) => {
+        this.setState({ track: res.data.message.body.track });
+      })
 
-          .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
+  }
+
+  componentDidMount() {
+      this.fetchData()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.fetchData()
+    }
   }
 
 
