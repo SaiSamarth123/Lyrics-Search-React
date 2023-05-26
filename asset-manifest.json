@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Lyrics-Search-React/static/css/main.31d6cfe0.css",
+    "main.js": "/Lyrics-Search-React/static/js/main.8eb9435f.js",
+    "static/js/787.dbb6605a.chunk.js": "/Lyrics-Search-React/static/js/787.dbb6605a.chunk.js",
+    "static/media/spinner.gif": "/Lyrics-Search-React/static/media/spinner.1a32f552ee5280e2aef9.gif",
+    "index.html": "/Lyrics-Search-React/index.html",
+    "main.8eb9435f.js.map": "/Lyrics-Search-React/static/js/main.8eb9435f.js.map",
+    "787.dbb6605a.chunk.js.map": "/Lyrics-Search-React/static/js/787.dbb6605a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.8eb9435f.js"
+  ]
+}
