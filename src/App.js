@@ -1,16 +1,19 @@
-import  {BrowserRouter, Route, Switch}from 'react-router-dom'
-import './App.css';
-import Navbar from './components/layout/Navbar'
-import Index from './components/layout/Index'
-import Lyrics from "./components/tracks/Lyrics";
-import React from 'react';
-import Provider from './context'
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+import Navbar from "./components/layout/Navbar";
+import Index from "./components/layout/Index";
+import Lyrics from "./components/tracks/Lyrics";
+
+import "./App.css";
+
+import { ContextController } from "./context";
+
+const App = () => {
   return (
-    <Provider>
-      <BrowserRouter>
-        <React.Fragment>
+    <ContextController>
+      <Router>
+        <>
           <Navbar />
           <div className="container">
             <Switch>
@@ -18,10 +21,10 @@ function App() {
               <Route exact path="/lyrics/track/:id" component={Lyrics} />
             </Switch>
           </div>
-        </React.Fragment>
-      </BrowserRouter>
-    </Provider>
+        </>
+      </Router>
+    </ContextController>
   );
-}
+};
 
 export default App;
